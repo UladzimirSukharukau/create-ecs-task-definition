@@ -1,0 +1,29 @@
+name: "Create ECS task with predetermined containers settings"
+description: "Create ECS task with predetermined containers settings"
+inputs:
+  service-name:
+    description: "Name of the service (i.e. web-app or data-api)"
+    required: true
+  image:
+    description: "Service container image"
+    required: true
+  environment:
+    description: "Additional environment variables for service container"
+  deployment-environment:
+    description: "Name of the deployment environment (i.e. develop, staging or live)"
+    required: true
+  region:
+    description: "Deployment region. Default is eu-west-2"
+  cpu:
+    description: "Task CPU. Default is 256"
+  memory:
+    description: "Task Memory. Default is 1024"
+  task-role-arn:
+    description: "Task Role ARN"
+    required: true
+  execution-role-arn:
+    description: "Execution Role ARN"
+    required: true
+runs:
+  using: "node12"
+  main: "index.js"
